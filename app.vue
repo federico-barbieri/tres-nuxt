@@ -5,13 +5,14 @@
 
     <form class="panel-form" action="">
       <h1>Welcome to {{ schoolName }}</h1>
+      <p>Find as in {{ address }}</p>
       <label for="name">
         Name:
         <input type="text" name="name" id="name" v-model="schoolName">
       </label>
 
       <label for="color">
-        Color: {{ address }}
+        Color:
         <input type="text" name="color" id="color" v-model="color">
       </label>
 
