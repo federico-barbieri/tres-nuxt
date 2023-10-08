@@ -1,7 +1,7 @@
 <template>
   
   <main>
-    <Canvas :color="colorChanger" />
+    <Canvas :color="colorPicker" />
 
     <form class="panel-form" action="">
       <h1>Welcome to {{ schoolName }}</h1>
@@ -14,7 +14,7 @@
 
       <label for="color">
         Color:
-        <input type="text" name="color" id="color" v-model="color">
+        <input type="text" name="color" id="color" v-model="colorPicker">
       </label>
 
       <label for="address">
@@ -39,14 +39,14 @@
 <script setup>
 
 const schoolName = ref('');
-const color = ref('');
+const colorPicker = ref('');
 const address = ref('');
 const children = ref('');
 
 
 // Watch for changes in color and update color ref accordingly
-watch(color, (newValue) => {
-  color.value = newValue;
+watch(colorPicker, (newValue) => {
+  colorPicker.value = newValue;
 });
 
 // Watch for changes in color and update color ref accordingly
