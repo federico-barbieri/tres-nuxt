@@ -8,14 +8,16 @@
       <label for="name">
         Name:
         <input type="text" name="name" id="name" v-model="schoolName">
-
-
       </label>
 
       <label for="color">
-        Color:
-        <input type="text" name="color" id="color" v-model="inputValue">
+        Color: {{ address }}
+        <input type="text" name="color" id="color" v-model="color">
+      </label>
 
+      <label for="address">
+        Address:
+        <input type="text" name="address" id="address" v-model="address">
       </label>
     </form>
 
@@ -33,11 +35,18 @@ const schoolName = ref('');
 
 
 const inputValue = ref('');
-const colorChanger = ref('');
+const color = ref('');
+const address = ref('');
 
-// Watch for changes in inputValue and update colorChanger accordingly
-watch(inputValue, (newValue) => {
-  colorChanger.value = newValue;
+
+// Watch for changes in color and update color ref accordingly
+watch(color, (newValue) => {
+  color.value = newValue;
+});
+
+// Watch for changes in color and update color ref accordingly
+watch(address, (newValue) => {
+  address.value = newValue;
 });
 
 
