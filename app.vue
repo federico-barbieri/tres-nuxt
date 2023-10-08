@@ -6,6 +6,7 @@
     <form class="panel-form" action="">
       <h1>Welcome to {{ schoolName }}</h1>
       <p>Find as in {{ address }}</p>
+      <p>Max number of children is {{ children }}</p>
       <label for="name">
         Name:
         <input type="text" name="name" id="name" v-model="schoolName">
@@ -20,6 +21,11 @@
         Address:
         <input type="text" name="address" id="address" v-model="address">
       </label>
+
+      <label for="children">
+        Max number of children:
+        <input type="text" name="children" id="children" v-model="children">
+      </label>
     </form>
 
     
@@ -33,11 +39,9 @@
 <script setup>
 
 const schoolName = ref('');
-
-
-const inputValue = ref('');
 const color = ref('');
 const address = ref('');
+const children = ref('');
 
 
 // Watch for changes in color and update color ref accordingly
