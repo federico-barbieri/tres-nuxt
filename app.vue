@@ -1,34 +1,41 @@
 <template>
   
   <main>
-    <Canvas :color="colorPicker" />
+    <section class="left-side">
 
-    <form class="panel-form" action="">
+    
+    <div class="daycare-info">
       <h1>Welcome to {{ schoolName }}</h1>
       <p>Find as in {{ address }}</p>
       <p>Max number of children is {{ children }}</p>
-      <label for="name">
-        Name:
-        <input type="text" name="name" id="name" v-model="schoolName">
-      </label>
+    </div>
+    <Canvas class="canvas" />
 
-      <label for="color">
-        Color:
-        <input type="text" name="color" id="color" v-model="colorPicker">
-      </label>
+  </section>
 
-      <label for="address">
-        Address:
-        <input type="text" name="address" id="address" v-model="address">
-      </label>
+  <section class="right-side">
 
-      <label for="children">
-        Max number of children:
-        <input type="text" name="children" id="children" v-model="children">
-      </label>
-    </form>
+    <form class="panel-form" action="">
 
-    
+<label for="name">
+  Name:
+  <input type="text" name="name" id="name" v-model="schoolName">
+</label>
+
+<label for="address">
+  Address:
+  <input type="text" name="address" id="address" v-model="address">
+</label>
+
+<label for="children">
+  Max number of children:
+  <input type="text" name="children" id="children" v-model="children">
+</label>
+</form>
+
+
+
+  </section>    
 
 
   </main>
@@ -39,15 +46,9 @@
 <script setup>
 
 const schoolName = ref('');
-const colorPicker = ref('');
 const address = ref('');
 const children = ref('');
 
-
-// Watch for changes in color and update color ref accordingly
-watch(colorPicker, (newValue) => {
-  colorPicker.value = newValue;
-});
 
 // Watch for changes in color and update color ref accordingly
 watch(address, (newValue) => {
@@ -59,18 +60,59 @@ watch(address, (newValue) => {
 
 <style scoped>
 
+/* main */
+
 main{
-  width: 100vw;
-  height: 100vh;
+  width: 80vw;
+  height: 90vh;
   display: flex;
-  margin: 0 auto;
+  flex-direction: row;
+  margin: auto;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
+  border: 2px solid black;
+  overflow: hidden;
 
 }
 
-h1{
-  color: black;
+/* left side */
+
+.left-side{
+width: 70%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+border: 2px solid green;
+
+}
+
+.daycare-info{
+  width: 90%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: magenta;
+  border-radius: 30px;
+  color: white;
+  padding: 1rem;
+}
+
+
+/* right side */
+
+.right-side{
+width: 30%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+border: 2px solid green;
+
 }
 
 .panel-form{
@@ -79,9 +121,9 @@ h1{
   align-items: center;
   justify-content: space-around;
   border: 2px solid red;
-  width: 20%;
-  height: 60%;
-  margin: 0 auto 0 5rem;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 </style>
